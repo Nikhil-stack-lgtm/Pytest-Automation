@@ -15,6 +15,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from configparser import ConfigParser
 import os
 
+
 # from seleniumbasicspytest.browser_test import driver
 
 # @pytest.fixture(scope="module")
@@ -87,11 +88,8 @@ def test_login_logout(driver, config):
     driver.find_element(By.XPATH, "//div[@class='sub-menu-card__sign-out']").click()
     time.sleep(10)
 
-def test_login_empty(driver, config):
-    # Load configuration
-    # config = ConfigParser()
-    # config.read('config.ini')
 
+def test_login_empty(driver, config):
     # Retrieve URL from config
     url = config.get('detail', 'url')
     driver.get(url)
@@ -100,14 +98,7 @@ def test_login_empty(driver, config):
     time.sleep(15)
 
 
-
-
 def test_my_profile(driver, config):
-    # Load configuration
-    # config = ConfigParser()
-    # config.read('config.ini')
-
-
     # Retrieve URL from config
     url = config.get('detail', 'url')
     driver.maximize_window()
@@ -177,10 +168,6 @@ def test_my_profile(driver, config):
 
 
 def test_upload_profile_pic(driver, config):
-    # Load configuration
-    # config = ConfigParser()
-    # config.read('config.ini')
-
     # Retrieve URL from config
     url = config.get('detail', 'url')
     driver.maximize_window()
@@ -296,7 +283,8 @@ def test_settings(driver, config):
     # Click the "Sign In" button
     driver.find_element(By.XPATH, "//button[normalize-space()='Sign In']").click()
     time.sleep(15)
-    driver.find_element(By.XPATH, "//a[contains(@href,'/settings')]//div[contains(@class,'tooltip-custom')]//*[name()='svg']").click()
+    driver.find_element(By.XPATH,
+                        "//a[contains(@href,'/settings')]//div[contains(@class,'tooltip-custom')]//*[name()='svg']").click()
     time.sleep(15)
     driver.find_element(By.XPATH, "//button[normalize-space()='Edit']").click()
     time.sleep(10)
@@ -337,9 +325,10 @@ def test_settings(driver, config):
 
     driver.find_element(By.XPATH, "//button[@id='simple-tab-1']").click()
     time.sleep(5)  # Wait up to 5 seconds
-    driver.find_element(By.XPATH, "//div[contains(@class,'protectedLayout__container__bottomNavigationClose')]//div[2]//div[2]//div[2]//div[1]//div[3]//div[1]//span[1]//img[1]").click()
+    driver.find_element(By.XPATH,
+                        "//div[contains(@class,'protectedLayout__container__bottomNavigationClose')]//div[2]//div[2]//div[2]//div[1]//div[3]//div[1]//span[1]//img[1]").click()
     time.sleep(5)
-    driver.find_element(By.XPATH,"//p[normalize-space()='05:00 pm']").click()
+    driver.find_element(By.XPATH, "//p[normalize-space()='05:00 pm']").click()
     time.sleep(5)
     driver.find_element(By.XPATH, "//button[normalize-space()='Schedule']").click()
     time.sleep(5)
@@ -368,6 +357,7 @@ def test_settings(driver, config):
     driver.find_element(By.XPATH, "//div[@class='profileWrapper']//*[name()='svg']").click()
     driver.find_element(By.XPATH, "//div[@class='sub-menu-card__sign-out']").click()
     time.sleep(5)
+
 
 def test_add_user(driver, config):
     # Load configuration
@@ -414,29 +404,35 @@ def test_add_user(driver, config):
     time.sleep(5)
     driver.find_element(By.XPATH, "//input[contains(@value,'Edit Cloud Accounts, Slack, MS Teams, Email')]").click()
     sleep(10)
-    driver.find_element(By.XPATH, "//p[contains(@class,'typography__body-3 typography__body-3__medium label')][normalize-space()='Cloud Accounts']").click()
+    driver.find_element(By.XPATH,
+                        "//p[contains(@class,'typography__body-3 typography__body-3__medium label')][normalize-space()='Cloud Accounts']").click()
     time.sleep(5)
-    driver.find_element(By.XPATH, "//p[contains(@class,'typography__body-3 typography__body-3__medium label')][normalize-space()='Team Management']").click()
+    driver.find_element(By.XPATH,
+                        "//p[contains(@class,'typography__body-3 typography__body-3__medium label')][normalize-space()='Team Management']").click()
     time.sleep(5)
     driver.find_element(By.XPATH, "//input[contains(@value,'View Users, teams, archived users')]").click()
     driver.find_element(By.XPATH, "//input[@value='Edit Users, teams, archived users']").click()
     time.sleep(5)
-    driver.find_element(By.XPATH,"//p[contains(@class,'typography__body-3 typography__body-3__medium label')][normalize-space()='Team Management']").click()
+    driver.find_element(By.XPATH,
+                        "//p[contains(@class,'typography__body-3 typography__body-3__medium label')][normalize-space()='Team Management']").click()
     time.sleep(5)
-    driver.find_element(By.XPATH,"//p[@class='typography__body-3 typography__body-3__medium label'][normalize-space()='Settings']").click()
+    driver.find_element(By.XPATH,
+                        "//p[@class='typography__body-3 typography__body-3__medium label'][normalize-space()='Settings']").click()
     time.sleep(5)
-    driver.find_element(By.XPATH,"//input[contains(@value,'View Organization, Notifications, Account')]").click()
-    driver.find_element(By.XPATH,"//input[@value='Edit Organization, Notifications | Edit Account - owner only ']").click()
+    driver.find_element(By.XPATH, "//input[contains(@value,'View Organization, Notifications, Account')]").click()
+    driver.find_element(By.XPATH,
+                        "//input[@value='Edit Organization, Notifications | Edit Account - owner only ']").click()
     time.sleep(5)
-    driver.find_element(By.XPATH,"//p[@class='typography__body-3 typography__body-3__medium label'][normalize-space()='Settings']").click()
+    driver.find_element(By.XPATH,
+                        "//p[@class='typography__body-3 typography__body-3__medium label'][normalize-space()='Settings']").click()
     time.sleep(5)
     driver.find_element(By.XPATH,
                         "//p[contains(@class,'typography__body-3 typography__body-3__medium label')][normalize-space()='FAQ']").click()
     time.sleep(5)
     driver.find_element(By.XPATH,
-                       "//p[contains(@class,'typography__body-3 typography__body-3__medium label')][normalize-space()='FAQ']").click()
+                        "//p[contains(@class,'typography__body-3 typography__body-3__medium label')][normalize-space()='FAQ']").click()
     time.sleep(5)
-    driver.find_element(By.XPATH,"//p[normalize-space()='Submit Feedback']").click()
+    driver.find_element(By.XPATH, "//p[normalize-space()='Submit Feedback']").click()
     time.sleep(5)
     driver.find_element(By.XPATH, "//button[normalize-space()='Review']").click()
     time.sleep(5)
@@ -460,18 +456,3 @@ def test_add_user(driver, config):
     time.sleep(10)
     driver.find_element(By.XPATH, "//i[@class='material-icons-outlined f36']").click()
     time.sleep(5)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
